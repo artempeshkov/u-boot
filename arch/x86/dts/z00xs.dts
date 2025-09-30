@@ -1,0 +1,59 @@
+// SPDX-License-Identifier: GPL-2.0+
+/*
+ * Copyright (c) 2025 nobody
+ */
+
+/dts-v1/;
+
+#include <dt-bindings/gpio/x86-gpio.h>
+#include <dt-bindings/interrupt-router/intel-irq.h>
+
+/include/ "skeleton.dtsi"
+/include/ "rtc.dtsi"
+
+#include "tsc_timer.dtsi"
+#include "smbios.dtsi"
+
+/ {
+	model = "Asus Zenfone Zoom";
+	compatible = "asus,z00xs", "intel,tangier";
+
+	/* aliases {
+	};*/
+
+	/* chosen {
+	}; */
+
+	cpus {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "cpu-x86";
+			reg = <0>;
+			intel,apic-id = <0>;
+		};
+
+		cpu@1 {
+			device_type = "cpu";
+			compatible = "cpu-x86";
+			reg = <1>;
+			intel,apic-id = <2>;
+		};
+
+		cpu@2 {
+			device_type = "cpu";
+			compatible = "cpu-x86";
+			reg = <1>;
+			intel,apic-id = <4>;
+		};
+
+		cpu@3 {
+			device_type = "cpu";
+			compatible = "cpu-x86";
+			reg = <1>;
+			intel,apic-id = <6>;
+		};
+	};
+};

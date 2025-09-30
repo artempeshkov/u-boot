@@ -20,7 +20,8 @@ dtb-y += bayleybay.dtb \
 	qemu-x86_q35.dtb \
 	theadorable-x86-dfi-bt700.dtb \
 	slimbootloader.dtb \
-	baytrail_som-db5800-som-6867.dtb
+	baytrail_som-db5800-som-6867.dtb \
+	z00xs.dtb
 
 include $(srctree)/scripts/Makefile.dts
 
