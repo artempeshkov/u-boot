@@ -30,12 +30,14 @@
 		stdout-path = "serial0:115200n8";
 
 		framebuffer: framebuffer@7f700000 {
-			compatible = "simple-framebuffer", "framebuffer-serial";
+			compatible = "framebuffer-serial";
+			//compatible = "simple-framebuffer", "framebuffer-serial";
 			reg = <0x0 0x7f700000 0x0 0x7F8000>;
-			width = <1080>;
-			height = <1920>;
-			stride = <(1088 * 4)>;
-			format = "a8r8g8b8";
+			//width = <1080>;
+			//height = <1920>;
+			//stride = <(1088 * 4)>;
+			//format = "a8r8g8b8";
+			bootph-all;
 		};
 	};
 

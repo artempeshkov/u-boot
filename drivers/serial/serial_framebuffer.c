@@ -127,7 +127,7 @@ static int framebuffer_serial_ofdata_to_platdata(struct udevice *dev)
 {
 	struct framebuffer_serial_data *priv = dev_get_priv(dev);
 
-    disable = true;
+    //disable = true;
 
 	priv->base = dev_read_addr(dev);
 	if (priv->base == FDT_ADDR_T_NONE)
