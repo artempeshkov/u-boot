@@ -7,7 +7,7 @@ config SYS_VENDOR
 	default "asus"
 
 config SYS_SOC
-	default "tangier"
+	default "anniedale"
 
 config SYS_MALLOC_LEN
 	default 0x08000000
@@ -19,7 +19,7 @@ config BOARD_SPECIFIC_OPTIONS # dummy
 	def_bool y
 	select X86_LOAD_FROM_32_BIT
 	select INTEL_MID
-	select INTEL_TANGIER
+	select INTEL_ANNIEDALE
 	select MD5
 
 endif

@@ -53,6 +53,7 @@ obj-$(CONFIG_NORTHBRIDGE_INTEL_IVYBRIDGE) += ivybridge/
 obj-$(CONFIG_INTEL_QUARK) += quark/
 obj-$(CONFIG_INTEL_QUEENSBAY) += queensbay/
 obj-$(CONFIG_INTEL_TANGIER) += tangier/
+obj-$(CONFIG_INTEL_ANNIEDALE) += anniedale/
 obj-$(CONFIG_APIC) += lapic.o ioapic.o
 obj-$(CONFIG_$(PHASE_)ACPI_GPE) += acpi_gpe.o
 obj-$(CONFIG_QFW) += qfw_cpu.o
