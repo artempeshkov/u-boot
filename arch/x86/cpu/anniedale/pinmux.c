@@ -39,8 +39,9 @@ struct mrfld_family {
 
 /* Now we only support SD/SDIO and I2C families of pins */
 static struct mrfld_family mrfld_families[] = {
-	MRFLD_FAMILY(3, 37, 56),
-	MRFLD_FAMILY(7, 101, 114),
+	//MRFLD_FAMILY(3, 37, 56),
+	MRFLD_FAMILY(2, 25, 44),
+	//MRFLD_FAMILY(7, 101, 114),
 };
 
 struct mrfld_pinctrl {
@@ -212,12 +213,12 @@ static int tangier_pinctrl_probe(struct udevice *dev)
 }
 
 static const struct udevice_id tangier_pinctrl_match[] = {
-	{ .compatible = "intel,pinctrl-tangier", .data = X86_SYSCON_PINCONF },
+	{ .compatible = "intel,pinctrl-anniedale", .data = X86_SYSCON_PINCONF },
 	{ /* sentinel */ }
 };
 
 U_BOOT_DRIVER(tangier_pinctrl) = {
-	.name = "tangier_pinctrl",
+	.name = "anniedale_pinctrl",
 	.id = UCLASS_SYSCON,
 	.of_match = tangier_pinctrl_match,
 	.probe = tangier_pinctrl_probe,

@@ -44,8 +44,7 @@ static int sdhci_tangier_probe(struct udevice *dev)
 
 	host->name = dev->name;
 	host->ioaddr = plat->ioaddr;
-	//SDHCI_QUIRK_NO_HISPD_BIT
-	host->quirks = SDHCI_QUIRK_BROKEN_VOLTAGE |
+	host->quirks = SDHCI_QUIRK_NO_HISPD_BIT | SDHCI_QUIRK_BROKEN_VOLTAGE |
 		       SDHCI_QUIRK_32BIT_DMA_ADDR | SDHCI_QUIRK_WAIT_SEND_CMD;
 
 	/* MMC_VDD_32_33 | MMC_VDD_33_34 | MMC_VDD_165_195 */

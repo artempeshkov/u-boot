@@ -75,19 +75,23 @@
 		};
 	};
 
-	pci {
-		compatible = "pci-x86";
-		#address-cells = <3>;
-		#size-cells = <2>;
-		bootph-all;
-		ranges = <0x02000000 0x0 0x80000000 0x80000000 0 0x40000000
-			  0x42000000 0x0 0xc0000000 0xc0000000 0 0x20000000
-			  0x01000000 0x0 0x2000 0x2000 0 0xe000>;
-	};
-
 	emmc: mmc@ff3fc000 {
 		compatible = "intel,sdhci-tangier";
 		reg = <0xff3fc000 0x1000>;
 		non-removable;
+	};
+
+	sdcard: mmc@ff3fa000 {
+		compatible = "intel,sdhci-tangier";
+		reg = <0xff3fa000 0x1000>;
+	};
+
+	pinctrl {
+		compatible = "intel,pinctrl-anniedale";
+		reg = <0xff0c0000 0x8000>;
+		sd_cd@0 {
+			pad-offset = <25>;
+			mode-func = <3>;
+		};
 	};
 };
