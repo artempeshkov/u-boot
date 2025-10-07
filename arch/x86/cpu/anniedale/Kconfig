@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: GPL-2.0+
+#
+# Copyright (c) 2017 Intel Corporation
+
+config INTEL_ANNIEDALE
+	bool
+	depends on INTEL_MID
+	select INTEL_MID_SERIAL
+	select MMC
+	select MMC_SDHCI
+	select MMC_SDHCI_SDMA
+	select MMC_SDHCI_TANGIER
+	select MISC
+	select USB
+	select USB_XHCI_HCD
+	select USB_DWC3
+	select USB_DWC3_GENERIC
+
+if INTEL_ANNIEDALE
+
+config SYS_CAR_ADDR
+	hex
+	default 0x19200000
+
+config SYS_CAR_SIZE
+	hex
+	default 0x4000
+	help
+	  Space in bytes in eSRAM used as Cache-As-RAM (CAR).
+	  Note this size must not exceed eSRAM's total size.
+
+endif

@@ -57,6 +57,9 @@ choice
 config VENDOR_ADVANTECH
 	bool "advantech"
 
+config VENDOR_ASUS
+	bool "Asus"
+
 config VENDOR_CONGATEC
 	bool "congatec"
 
@@ -105,8 +108,10 @@ source "board/efi/Kconfig"
 source "board/emulation/Kconfig"
 source "board/google/Kconfig"
 source "board/intel/Kconfig"
+source "board/asus/Kconfig"
 
 # platform-specific options below
+source "arch/x86/cpu/anniedale/Kconfig"
 source "arch/x86/cpu/apollolake/Kconfig"
 source "arch/x86/cpu/baytrail/Kconfig"
 source "arch/x86/cpu/braswell/Kconfig"

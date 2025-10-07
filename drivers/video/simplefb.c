@@ -3,6 +3,7 @@
  * (C) Copyright 2017 Rob Clark
  */
 
+#define DEBUG
 #include <dm.h>
 #include <fdtdec.h>
 #include <fdt_support.h>

@@ -1,0 +1,20 @@
+# SPDX-License-Identifier: GPL-2.0+
+#
+# Copyright (C) 2015, Bin Meng <bmeng.cn@gmail.com>
+
+if VENDOR_ASUS
+
+choice
+	prompt "Mainboard model"
+	optional
+
+config TARGET_Z00XS
+	bool "Zenfone Zoom"
+	help
+	  Zenfone Zoom
+
+endchoice
+
+source "board/asus/z00xs/Kconfig"
+
+endif

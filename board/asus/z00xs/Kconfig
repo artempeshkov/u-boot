@@ -1,0 +1,32 @@
+if TARGET_Z00XS
+
+config SYS_BOARD
+	default "z00xs"
+
+config SYS_VENDOR
+	default "asus"
+
+config SYS_SOC
+	default "anniedale"
+
+config SYS_MALLOC_LEN
+	default 0x08000000
+
+config TEXT_BASE
+	default 0x10F00000
+
+#config ROM_TABLE_ADDR
+#	default 0x0e4500
+
+#config ROM_TABLE_SIZE
+#	default 0x007b00
+
+config BOARD_SPECIFIC_OPTIONS # dummy
+	def_bool y
+	select X86_LOAD_FROM_32_BIT
+	select INTEL_MID
+	select INTEL_ANNIEDALE
+	select BOARD_LATE_INIT
+	select MD5
+
+endif
