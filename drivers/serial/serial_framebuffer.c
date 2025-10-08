@@ -110,8 +110,8 @@ static void fb_putc(phys_addr_t _base, const char c) {
 
     if (column >= MAX_COLS) {
         column = 0;
-        //udelay(1 * 500 * 1000);
-        //clear_fb(_base);
+        udelay(1 * 500 * 1000);
+        clear_fb(_base);
     }
 	return;
 }
@@ -133,7 +133,7 @@ static int framebuffer_serial_ofdata_to_platdata(struct udevice *dev)
 	if (priv->base == FDT_ADDR_T_NONE)
 		return -EINVAL;
 
-    clear_fb(priv->base);
+    //clear_fb(priv->base);
 
 	return 0;
 }

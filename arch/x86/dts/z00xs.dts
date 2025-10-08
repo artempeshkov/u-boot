@@ -19,16 +19,16 @@
 	compatible = "asus,z00xs", "intel,anniedale";
 
 	aliases {
-		serial0 = &fb1;
+		//serial0 = &fb1;
 		//serial1 = &serial1;
 		//serial2 = &serial2;
 	};
 
 	chosen {
-		stdout-path = "serial0:115200n8";
+		//stdout-path = "serial0:115200n8";
 	};
 
-	fb0: framebuffer@7fafc000 {
+	/* fb0: framebuffer@7fafc000 {
 		compatible = "simple-framebuffer";
 		reg = <0x7fafc000 0x3fc000>;
 		width = <1080>;
@@ -36,7 +36,7 @@
 		stride = <(1088 * 4)>;
 		format = "a8r8g8b8";
 		status = "okay";
-	};
+	}; */
 
 	fb1: framebuffer@7f700000 {
 		compatible = "framebuffer-serial";

@@ -69,11 +69,11 @@ static void assign_hardware_id(void)
 int board_late_init(void)
 {
 	env_set("bootcmd","dm tree");
-	if (!env_get("serial#"))
-		assign_serial();
+	//if (!env_get("serial#"))
+	//	assign_serial();
 
-	if (!env_get("hardware_id"))
-		assign_hardware_id();
+	//if (!env_get("hardware_id"))
+	//	assign_hardware_id();
 
 	return 0;
 }
