@@ -52,7 +52,7 @@ int acpi_fill_mcfg(struct acpi_ctx *ctx)
 	/* TODO: Derive parameters from SFI MCFG table */
 	size = acpi_create_mcfg_mmconfig
 		((struct acpi_mcfg_mmconfig *)ctx->current,
-		MCFG_BASE_ADDRESS, 0x0, 0x0, 0x0);
+		0x7f600000, 0x0, 0x0, 0x0);
 	acpi_inc(ctx, size);
 
 	return 0;

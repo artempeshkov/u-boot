@@ -470,25 +470,31 @@ efi_status_t efi_gop_register(void)
 	u32 bpix, format, col, row;
 	u64 fb_base, fb_size;
 	efi_status_t ret;
-	struct udevice *vdev;
-	struct video_priv *priv;
-	struct video_uc_plat *plat;
+	//struct udevice *vdev;
+	//struct video_priv *priv;
+	//struct video_uc_plat *plat;
 
 	/* We only support a single video output device for now */
-	if (uclass_first_device_err(UCLASS_VIDEO, &vdev)) {
+	/* if (uclass_first_device_err(UCLASS_VIDEO, &vdev)) {
 		debug("WARNING: No video device\n");
 		return EFI_SUCCESS;
-	}
+	}  */
 
-	priv = dev_get_uclass_priv(vdev);
-	bpix = priv->bpix;
-	format = priv->format;
-	col = video_get_xsize(vdev);
-	row = video_get_ysize(vdev);
+	//priv = dev_get_uclass_priv(vdev);
+	//bpix = priv->bpix;
+	//format = priv->format;
+	bpix = VIDEO_BPP32;
+	format = VIDEO_X8B8G8R8;
+	//col = video_get_xsize(vdev);
+	//row = video_get_ysize(vdev);
+	col = 1080;
+	row = 960;
 
-	plat = dev_get_uclass_plat(vdev);
-	fb_base = IS_ENABLED(CONFIG_VIDEO_COPY) ? plat->copy_base : plat->base;
-	fb_size = plat->size;
+	//plat = dev_get_uclass_plat(vdev);
+	//fb_base = IS_ENABLED(CONFIG_VIDEO_COPY) ? plat->copy_base : plat->base;
+	//fb_size = plat->size;
+	fb_base = 0x7fafc000;
+	fb_size = 0x3fc000;
 
 	switch (bpix) {
 	case VIDEO_BPP16:
