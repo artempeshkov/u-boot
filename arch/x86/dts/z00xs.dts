@@ -101,21 +101,16 @@
 		current-speed = <115200>;
 	}; */
 
-	emmc: mmc@ff3fc000 {
+	/* emmc: mmc@ff3fc000 {
 		compatible = "intel,sdhci-tangier";
 		reg = <0xff3fc000 0x1000>;
 		non-removable;
-	};
+	}; */
 
 	sdcard: mmc@ff3fa000 {
 		compatible = "intel,sdhci-tangier";
 		reg = <0xff3fa000 0x1000>;
-		/*
-		 * In the disconnected state of the SD Card Detection pin
-		 * the read value is always the same and inverted to what
-		 * we are expecting in the code.
-		 */
-		cd-inverted;
+		//cd-inverted;
 	};
 
 	pmu: power@ff00b000 {
@@ -159,10 +154,10 @@
 		 * using the opposite signaling: Edison/Arduino uses
 		 * Active Low, while SparkFun went with Active High.
 		 */
-		sd_cd@0 {
+		/* sd_cd@0 {
 			pad-offset = <25>;
 			mode-func = <3>;
-		};
+		}; */
 
 		/*
 		 * Initial configuration came from the firmware.
