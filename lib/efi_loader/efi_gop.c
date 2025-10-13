@@ -18,6 +18,7 @@
 DECLARE_GLOBAL_DATA_PTR;
 
 static const efi_guid_t efi_gop_guid = EFI_GRAPHICS_OUTPUT_PROTOCOL_GUID;
+//static const efi_guid_t efi_devpath_guid = EFI_DEVICE_PATH_PROTOCOL_GUID;
 
 /**
  * struct efi_gop_obj - graphical output protocol object
@@ -34,6 +35,7 @@ struct efi_gop_obj {
 	struct efi_gop ops;
 	struct efi_gop_mode_info info;
 	struct efi_gop_mode mode;
+	//struct efi_device_path devpath;
 	/* Fields we only have access to during init */
 	u32 bpix;
 	void *fb;
@@ -554,9 +556,22 @@ efi_status_t efi_gop_register(void)
 		gopobj->info.pixel_bitmask[1] = 0x07e0; /* green */
 		gopobj->info.pixel_bitmask[2] = 0x001f; /* blue */
 	}
-	gopobj->info.pixels_per_scanline = col;
+	gopobj->info.pixels_per_scanline = 1088;
 	gopobj->bpix = bpix;
 	gopobj->fb = map_sysmem(fb_base, fb_size);
+
+
+	/* Add EFI device path to handle
+	 * This fixes Windows on UEFI
+	 */
+	/* ret = efi_add_protocol(&gopobj->header,
+						   &efi_devpath_guid,
+						&gopobj->devpath);
+
+	if (ret != EFI_SUCCESS) {
+		printf("ERROR: Failure adding device path protocol!\n");
+		return ret;
+	} */
 
 	return EFI_SUCCESS;
 }
